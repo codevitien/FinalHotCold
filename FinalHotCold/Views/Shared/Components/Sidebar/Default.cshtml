@@ -1,0 +1,13 @@
+﻿
+@model IEnumerable<FinalHotCold.Models.Category>
+<div class="card mb-4">
+	<div class="card-header">Categories</div>
+	<div class="list-group list-group-flush">
+		@foreach (var item in Model) {
+			<a href="@Url.Action("Product", "Home", new { categoryId = item.Id })" class="list-group-item list-group-item-action">@item.Name</a>
+
+		}
+
+
+	</div>
+</div>

@@ -1,0 +1,76 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.navbar {
+    background: url('../img/header-mid-bg.png');
+    background-size: cover;
+}
+
+.active {
+    background: #512467;
+}
+
+.nav-link:hover {
+    background: #512467;
+}
+
+.btn-cart {
+    background: #512467;
+    color: #fff !important;
+}
+
+.wrap {
+    background: url('../img/main-bg.png');
+    background-size: cover;
+}
+
+.carousel-item {
+    border-radius: 20px;
+    border: 2px solid #ff6a00;
+}
+
+    .carousel-item img {
+        border-radius: 20px;
+    }
+
+.title-footer {
+    font-size: 16px;
+    font-weight: bold;
+    color: #512467;
+}
+
+.list-footer {
+    line-height: 40px;
+    list-style: none;
+    padding-left: 0;
+}
+
+    .list-footer li {
+        color: #782c91;
+        font-size: 14px;
+    }
+
+.footer-main {
+    background: #f0f0e9;
+}
+
+.footer-fixed {
+    background: #512467;
+}
+

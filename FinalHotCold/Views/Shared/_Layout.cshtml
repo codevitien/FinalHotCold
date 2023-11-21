@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - hotcold</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/hotcold.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://ik.imagekit.io/urrta6ks6/New%20Folder/logo.png?updatedAt=1699352882774" width="150px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2  text-light" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  mx-2 text-light" asp-area="" asp-controller="Products" asp-action="Index">Tin tức</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  mx-2 text-light" asp-area="" asp-controller="Home" asp-action="Product">Liên hệ</a>
+                        </li>
+                    </ul>
+
+
+                    <a class="btn btn-cart" asp-area="" asp-controller="Home" asp-action="Product">Đặt hàng</a>
+
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3 wrap">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer-main py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <h5 class="title-footer">SẢN PHẨM</h5>
+
+                    <ul class="py-2 list-footer">
+                        <li>Combo Signature</li>
+                        <li>Thức Uống Nguyên Vị</li>
+                        <li>Trà Trái Cây</li>
+                        <li>Combo Best seller</li>
+                        <li>Combo Signature</li>
+                        <li>Combo Signature</li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="title-footer">DỊCH VỤ</h5>
+
+
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="title-footer">CHÍNH SÁCH</h5>
+
+
+                </div>
+                <div class="col-6 col-md-3">
+                    <h5 class="title-footer">ĐĂNG KÝ NHẬN THÔNG TIN</h5>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-fixed py-4 fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-3 d-flex align-items-center">
+                    <div>
+                        <img src="/img/phone.png" width="50px" />
+                    </div>
+                    <div class="mx-2">
+                        <h5 class="text-light">1900 2203</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center">
+                    <div>
+                        <img src="/img/mail.png" width="50px" />
+                    </div>
+                    <div class="mx-2">
+                        <h5 class="text-light">Email</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center">
+                    <div>
+                        <img src="/img/facebook.png" width="50px" />
+                    </div>
+                    <div class="mx-2">
+                        <h5 class="text-light">Facebook</h5>
+                    </div>
+                </div><div class="col-6 col-md-3 d-flex align-items-center">
+                    <div>
+                        <img src="/img/check-card.png" width="50px" />
+                    </div>
+                    <div class="mx-2">
+                        <h5 class="text-light">Kiểm tra đơn hàng</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function () {
+            // Bắt sự kiện khi modal được hiển thị
+            $('[id^=exampleModal]').on('show.bs.modal', function (event) {
+                // Lấy thông tin sản phẩm từ data-attributes
+                var button = $(event.relatedTarget); // Nút được kích hoạt modal
+                var productName = button.data('product-name');
+                var productPrice = button.data('product-price');
+
+                // Hiển thị thông tin sản phẩm trong modal
+                $(this).find('#nameProduct').val(productName);
+                $(this).find('#priceProduct').val(productPrice);
+            });
+
+        });
+    </script>
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

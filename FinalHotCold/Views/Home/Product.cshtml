@@ -1,0 +1,106 @@
+﻿@model List<FinalHotCold.Models.Product>
+@{
+    ViewData["Title"] = "Product";
+}
+
+<div class="container">
+    <div class="row mb-5">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            @await Component.InvokeAsync("Sidebar");
+        </div>
+
+        <!-- Main content -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var product in Model)
+                        {
+                            <!-- Button trigger modal -->
+                            
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Dat Hang</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form asp-action="Create" asp-controller="Orders" method="post">
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="name" class="form-label">Ten khach hang</label>
+                                                    <input type="text" class="form-control" id="name" name="NameCustomer" placeholder="Nguyen Van A">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="phone" class="form-label">So dien thoai</label>
+                                                    <input type="text" class="form-control" id="phone" name="PhoneCustomer" placeholder="09xxxxxxx">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="nameProduct" class="form-label">Ten san pham</label>
+                                                    <input type="text" class="form-control" id="nameProduct" name="NameProduct" readonly placeholder="Ten san pham">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="priceProduct" class="form-label">Gia san pham</label>
+                                                    <input type="text" class="form-control" id="priceProduct" name="PriceProduct" readonly placeholder="Gia san pham">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="address" class="form-label">Dia chi</label>
+                                                    <textarea class="form-control" id="address" name="AddressCustomer" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dong</button>
+                                                <button type="submit" class="btn btn-primary">Dat Hang</button>
+                                            </div>
+                                        </form>
+
+                                       
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-4">
+                                <div class="card">
+                                    <!-- Hiển thị thông tin sản phẩm -->
+                                    <img class="card-img-top" src="@product.ProductImg" alt="" />
+                                    <div class="card-body">
+                                        <p class="h6"><small class="text-muted">@product.ProductName</small><br />@product.ProductDes</p>
+                                     
+                                        <p class="h5 m-0">@product.ProductPrice</p>
+                                    </div>
+                                    <div class="card-footer p-0">
+                                        <div class="btn-group" role="group">
+
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    data-product-name="@product.ProductName" data-product-price="@product.ProductPrice">
+                                                <i class="fas fa-cart-plus"></i>
+                                                <span>Mua ngay</span>
+                                            </button>
+
+
+                                            <button type="button" class="btn btn-light">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light">
+                                                <i class="fas fa-heart"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

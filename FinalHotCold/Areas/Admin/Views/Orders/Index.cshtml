@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FinalHotCold.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameCustomer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneCustomer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressCustomer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceProduct)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceProduct)
+            </td>
+          
+        </tr>
+}
+    </tbody>
+</table>

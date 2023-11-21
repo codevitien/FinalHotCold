@@ -1,0 +1,27 @@
+CREATE TABLE [dbo].[Product] (
+    [ProductID]    INT            IDENTITY (1, 1) NOT NULL,
+    [ProductName]  NCHAR (100)    NULL,
+    [ProductDes]   NCHAR (100)    NULL,
+    [ProductPrice] INT            NULL,
+    [ProductImg]   NVARCHAR (MAX) NULL,
+    [CategoryId]   INT            NULL,
+    PRIMARY KEY CLUSTERED ([ProductID] ASC)
+);
+
+
+CREATE TABLE [dbo].[Order] (
+    [Id]              INT         IDENTITY (1, 1) NOT NULL,
+    [NameCustomer]    NCHAR (100) NULL,
+    [PhoneCustomer]   NCHAR (10)  NULL,
+    [AddressCustomer] NCHAR (100) NULL,
+    [NameProduct]     NCHAR (100) NULL,
+    [PriceProduct]    INT         NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Category] (
+    [Id]   INT         IDENTITY (1, 1) NOT NULL,
+    [Name] NCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
